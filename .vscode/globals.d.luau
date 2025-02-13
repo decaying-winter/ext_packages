@@ -1,8 +1,8 @@
-export type run_target = "test"|"ext"|"game"
+export type target_env = "test"|"ext"|"game"
 
 export type _env = {
-	[any]: any,
-	run_target: run_target
+	[string]: any,
+	target: target_env
 }
 
 declare getfenv: (target: any) -> (_env)
