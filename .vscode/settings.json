@@ -5,7 +5,6 @@
 	},
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
-	//luau lsp
 	"luau-lsp.completion.enableFragmentAutocomplete": true,
 	"luau-lsp.fflags.override": {
 		"LuauSolverV2": "true",
