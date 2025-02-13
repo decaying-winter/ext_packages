@@ -1,16 +1,23 @@
 local task = require("@lune/task")
 
-local function async(threads: thread | { thread })
-	if typeof(threads) == "table" then
-		for _, thread in threads do
-			async(thread)
-		end
-	else
-		while true do
-			if coroutine.status(threads) == "dead" then
+local async = function(threads: thread | { thread }, timeout: number?)
+	if typeof(threads) ~= "table" then threads = { threads } end
+	timeout = timeout or math.huge
+
+	local accumulated_time = 0
+	while true do
+		local all_threads_done = true
+		if accumulated_time >= timeout :: number then return false end
+		for _, thread in threads :: { thread } do
+			if coroutine.status(thread) ~= "dead" then
+				all_threads_done = false
 				break
 			end
-			task.wait()
+		end
+		if all_threads_done then
+			return true
+		else
+			accumulated_time += task.wait()
 		end
 	end
 end
