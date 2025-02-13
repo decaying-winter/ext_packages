@@ -1,5 +1,28 @@
 {
+	"[luau]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
+	},
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	//luau lsp
+	"luau-lsp.completion.enableFragmentAutocomplete": true,
+	"luau-lsp.fflags.override": {
+		"LuauSolverV2": "true",
+		"LuauTypeSolverRelease": "2000",
+		"LuauNewSolverPopulateTableLocations": "true",
+		"LuauNewSolverPrePopulateClasses": "true"
+	},
 	"luau-lsp.types.definitionFiles": [
 		".vscode/globals.d.luau"
-	]
+	],
+	"luau-lsp.completion.imports.separateGroupsWithLine": true,
+	"luau-lsp.completion.imports.suggestRequires": false,
+	"luau-lsp.completion.imports.suggestServices": true,
+	"stylua.targetReleaseVersion": "latest",
+	"workbench.editor.customLabels.enabled": true,
+	"workbench.editor.customLabels.patterns": {
+		"**/init.lua": "${dirname} (${filename}.${extname})",
+		"**/init.luau": "${dirname} (${filename}.${extname})"
+	}
 }
