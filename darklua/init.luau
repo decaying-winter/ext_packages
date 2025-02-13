@@ -2,7 +2,13 @@ local spawnProcess = require("../spawnProcess")
 
 local darklua = {}
 
-function darklua.build(projectDirectory: string, targetDirectory: string, configFileName: string, watch: boolean)
+function darklua.build(
+	projectDirectory: string,
+	targetDirectory: string,
+	configFileName: string,
+	watch: boolean,
+	env: _env?
+)
 	local parameters = {
 		"process",
 		"--config",
@@ -11,11 +17,9 @@ function darklua.build(projectDirectory: string, targetDirectory: string, config
 		targetDirectory,
 	}
 
-	if watch then
-		table.insert(parameters, "--watch")
-	end
+	if watch then table.insert(parameters, "--watch") end
 
-	return spawnProcess("darklua", parameters)
+	return spawnProcess("darklua", parameters, env)
 end
 
 return darklua
