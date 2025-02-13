@@ -14,3 +14,5 @@ local function async(threads: thread | { thread })
 		end
 	end
 end
+
+return async
