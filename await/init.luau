@@ -1,6 +1,6 @@
 local task = require("@lune/task")
 
-local async = function(threads: thread | { thread }, timeout: number?)
+local await = function(threads: thread | { thread }, timeout: number?)
 	if typeof(threads) ~= "table" then threads = { threads } end
 	timeout = timeout or math.huge
 
@@ -22,4 +22,4 @@ local async = function(threads: thread | { thread }, timeout: number?)
 	end
 end
 
-return async
+return await
