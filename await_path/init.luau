@@ -12,7 +12,7 @@ local function await_path(paths: string | { string }, timeout: number?)
 			waiters,
 			task.spawn(function()
 				while true do
-					if fs.isDir(path) then break end
+					if fs.isDir(path) or fs.isFile(path) then break end
 					task.wait()
 				end
 			end)
