@@ -1,4 +1,4 @@
-local async = require("../async")
+local await = require("../await")
 local fs = require("@lune/fs")
 local task = require("@lune/task")
 
@@ -19,7 +19,7 @@ local function await_path(paths: string | { string }, timeout: number?)
 		)
 	end
 
-	async(waiters, timeout)
+	await(waiters, timeout)
 end
 
 return await_path
